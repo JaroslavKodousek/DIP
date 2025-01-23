@@ -8,3 +8,6 @@ This is repo about DIP (Dlouhobý investiční produkt) that helps you compare d
 
 ## Run on
 - Streamlit
+
+## App is available here:
+https://dip-portu-patria.streamlit.app/
