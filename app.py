@@ -57,3 +57,20 @@ with col2:
 
     if st.session_state['final2'] is not None:
         st.subheader(f"Výsledek {st.session_state['final2']:,.0f} Kč")
+
+if st.session_state['final1'] is not None and st.session_state['final2'] is not None:
+    st.subheader("Porovnání DIPů u daných poskytovatelů")
+    if st.session_state['final1'] > st.session_state['final2']:
+        better_option = "Portu"
+        difference = st.session_state['final1'] - st.session_state['final2']
+    elif st.session_state['final1'] < st.session_state['final2']:
+        better_option = "Patria"
+        difference = st.session_state['final2'] - st.session_state['final1']
+    elif st.session_state['final1'] == st.session_state['final2']:
+        better_option = "oboje, protože Portu i Patria mají stejný výnos"
+        difference = st.session_state['final2'] - st.session_state['final1']
+    st.info(f"Vhodnou volbou je {better_option} ⭐")
+    if difference > 0:
+        st.success(f"{better_option} má celkový výnos vyšší o {difference:,.0f} Kč")
+    elif difference == 0:
+        st.write("Výnosy jsou shodné, není mezi nimi rozdíl.")
